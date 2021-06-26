@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--    bootstrap css cdn-->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <!-- custom css -->
+    <!-- <link rel="stylesheet" href="../CSS/gradiantAnimation.css" /> -->
+    <link rel="stylesheet" href="../CSS/loader.css" />
+    <link rel="stylesheet" href="../CSS/setting.css"/>
+
+    <title>settings</title>
+</head>
+<body style="overflow-x:hidden;"  class="setting_body">
+    <!-- for top gap in page -->
+    <div class="row" style="height: 35px;">
+    </div>
+
+    <!-- this is for right side button and left side main view -->
+    <div class="row" style="justify-content:center;">
+
+        <!-- setting page left side main view -->
+
+        <!-- friends view -->
+        <div class="col-xl-6 list-group" style="overflow:scroll;height: 700px; display: none;" id="friends_view_setting">
+          <!-- to show how many friends you have -->
+          <h1 class="display-2 mx-auto" id='friends_view_header'>
+          </h1>
+          <hr>
+        </div>
+
+        <!--  friend request view -->
+        <div class="col-xl-6 list-group" style="overflow:scroll;height: 700px;display: none;" id="pendingrequest_view_setting">
+          <!-- to show how many friends you have -->
+          <h1 class="display-2 mx-auto" id='pendingrequest_view_header'>
+          </h1>
+          <hr>
+        </div>
+
+        <!--  sent request view -->
+        <div class="col-xl-6 list-group" style="overflow:scroll;height: 700px;display: none;" id="sentrequest_view_setting">
+          <!-- to show how many friends you have -->
+          <h1 class="display-2 mx-auto" id='sentrequest_view_header'>
+          </h1>
+          <hr>
+        </div>
+
+        <!-- setting page right side option - button etc -->
+        <div class="col-2 list-group text-center example" style="overflow:scroll;height: 700px;">
+            <div class="row">
+                <div class="col-12" id='setting_page_right_button'>
+
+                  <!-- friends button -->
+                  <button
+                  type="button"
+                  class="list-group-item list-group-item-action hover_button_effect"
+                  style="font-weight:bold;
+                  margin:5px;border-color:black;color:white;outline:none;background-color: transparent;"
+                  id="friends_setting_button"
+                  >
+                  Friends
+                  </button>
+
+                  <!-- pending request button -->
+                  <button
+                  type="button"
+                  class="list-group-item list-group-item-action hover_button_effect"
+                  style="font-weight:bold;
+                  margin:5px;border-color:black;color:white;outline:none;background-color: transparent;"
+                  id="pendingrequest_setting_button"
+                  >
+                  Pending Request
+                  </button>
+
+                  <!-- sent request button  -->
+                  <button
+                  type="button"
+                  class="list-group-item list-group-item-action hover_button_effect"
+                  style="font-weight:bold;
+                  margin:5px;border-color:black;color:white;outline:none;background-color: transparent;"
+                  id="sentrequest_setting_button"
+                  >
+                  Sent Request
+                  </button>
+
+                  <!-- block fiend button  -->
+                  <!-- <button
+                  type="button"
+                  class="list-group-item list-group-item-action hover_button_effect"
+                  style="font-weight:bold;
+                  margin:5px;border-color:black;color:white;outline:none;background-color: transparent;"
+                  id="blockedfriend_button"
+                  >
+                  Blocked
+                  </button> -->
+                </div>
+              </div>
+        </div>
+    </div>
+
+    <!-- this include all the interface related to footer things and stuffs -->
+    <div class="row" style="background-color: black;height:102px; justify-content: center;">
+        <div class="col-2" style="margin-top: 40px;">
+            <a href="#" style="text-decoration: none;" target="_blank">Contact Us</a>
+        </div>
+        <div class="col-2" style="margin-top: 40px;">
+            <a href="#" style="text-decoration: none;" target="_blank">Report A Problem</a>
+        </div>
+    </div>
+
+
+    <!-- other things related to modal and other stuffs -->
+
+    <!--modal for friends -->
+    <div
+      class="modal fade"
+      id="friends_modal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document" >
+        <div class="modal-content">
+          <div class="modal-header" id="friends_modal_header">
+            <div class="row mx-auto">
+              <h6 class="display-4" id="friends_modal_label">
+                Profile
+              </h6>
+            </div>
+          </div>
+          <div class="modal-body">
+            <p class="h3 text-center" id="friends_username_modal"></p>
+            <p class="h3 text-center" id="friends_email_modal"></p>
+          </div>
+          <div class="modal-footer mx-auto">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- unfriends confirm modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- loader for webpage -->
+    <div id="overlay">
+      <div class="lds-roller" id="loader">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+    <!-- modal for unfriend  - cancel request - accept - deny etc - after completion result (Response) -->
+    <div class="modal" id="setting_modal_for_after_action" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content" style="background-color: #000000;">
+          <div class="modal-header mx-auto" id="setting_response_modal_header">
+            <!-- header for response modal -->
+          </div>
+          <div class="modal-body mx-auto" id="setting_response_modal_body">
+            <!-- body for response modal -->
+          </div>
+          <div class="modal-footer mx-auto">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</body>
+<!-- jquery include -->
+<script src="../JS/jquery.js"></script>
+  <!-- bootstrap javascript cdn-->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"
+  ></script>
+
+<script src="../JS/index.js"></script>
+</html>

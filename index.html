@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> 
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    bootstrap css cdn-->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <!--    custom css-->
+    <link rel="stylesheet" href="CSS/index.css" />
+    <link rel="stylesheet" href="./CSS/loader.css" />
+    <!-- <link rel="stylesheet" href="CSS/gradiantAnimation.css" /> -->
+    <link href="../CSS/chat.css" rel="stylesheet">
+
+    <!-- fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- title -->
+    <title>crabsnilchat</title>
+  </head>
+  <body style="overflow-x: hidden" class="body">
+
+    <span class="span">Create Account Add Friends:)</span>
+
+    <!-- for top gap in page -->
+    <div class="row" style="height: 35px;">
+    </div>
+    
+    <!-- this include all the interface related to chat and other chat related stuffs -->
+    <div
+      class="row"
+      style="justify-content: center; margin-bottom: 50px"
+      id="chat"
+    >
+      <!-- chat interface left side option friends etc -->
+      <div class="col-2 list-group text-center" style="overflow:scroll; height: 650px; display: none;" id="friend_list_section">
+      </div>
+
+      <!-- chat interface middle side chat option etc -->
+      <div class="col-xl-6" id="chat_message_sent_receive_section">
+      </div>
+
+      <!-- chst interface right side option -->
+      <div class="col-2 list-group text-center" style="overflow:scroll; height: 650px;" id="add_friend_section">
+        <div class="row">
+          <div class="col-12">
+
+            <!-- Sign Up button -->
+            <button
+            type="button"
+            class="list-group-item list-group-item-action hover_button_effect"
+            style="font-weight:bold;margin:5px;border-color:black;color:white;background-color: transparent;"
+            id="signup_button"
+            data-toggle="modal"
+            data-target="#signup_modal"
+            >
+            Sign Up
+            </button>
+
+            <!-- Log in button -->
+            <button
+            type="button"
+            class="list-group-item list-group-item-action hover_button_effect"
+            style="font-weight:bold;margin:5px;border-color:black;color:white;background-color: transparent;"
+            id="login_button"
+            data-toggle="modal"
+            data-target="#login_modal"
+            >
+            Log In
+            </button>
+
+            <!-- Add friend button  -->
+            <button
+            type="button"
+            class="list-group-item list-group-item-action hover_button_effect"
+            style="font-weight:bold;
+            margin:5px;border-color:black;color:white;outline:none;background-color: transparent;"
+            id="addfriend_button"
+            data-toggle="modal"
+            data-target="#friend_search"
+            >
+            Add Friend
+            </button>
+
+            <!-- user details button -->
+            <button
+            type="button"
+            class="list-group-item list-group-item-action hover_button_effect"
+            style="font-weight:bold;margin:5px;border-color:black;color:white;background-color: transparent;"
+            id="user_button"
+            data-target="#user_modal"
+            data-toggle="modal"
+            >
+            Account
+            </button>
+
+            <!-- Setting button -->
+            <a
+            href="/HTML/setting.html"
+            class="list-group-item list-group-item-action hover_button_effect"
+            style="font-weight:bold;margin:5px;border-color:black;color:white;background-color: transparent;"
+            id="setting_button"
+            target="_blank"
+            >
+            Settings
+            </a>
+
+            <!-- Log Out button -->
+            <button
+            type="button"
+            class="list-group-item list-group-item-action hover_button_effect"
+            style="font-weight:bold;margin:5px;border-color:black;color:white;background-color: transparent;"
+            id="logout_button"
+            >
+            Log Out
+            </button>
+
+          </div>
+        </div>
+          </button>
+      </div>
+    </div>
+
+    <!-- this include all the interface related to footer things and stuffs -->
+    <div class="row" style="background-color: black;height: 102px; justify-content: center;">
+      <div class="col-2" style="margin-top: 40px;">
+        <a href="#" style="text-decoration: none;" target="_blank">Contact Us</a>
+      </div>
+      <div class="col-2" style="margin-top: 40px;">
+        <a href="#" style="text-decoration: none;" target="_blank">Report A Problem</a>
+      </div>
+    </div>
+
+    <!-- some extra stuffs for other use -->
+
+    <!-- modal for sign up-->
+    <div
+    class="modal fade"
+    id="signup_modal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" id="signup_modal_header">
+          <div class="row mx-auto">
+            <h6 class="display-4" id="signup_modal_label">Sign Up</h6>
+          </div>
+        </div>
+        <div class="modal-body mx-auto alert_hide" id="sign_up_alert">
+          <!--                                    alert for modal-->
+        </div>
+        <div class="modal-body">
+          <form id="sign_up_form">
+            <div class="form-group">
+              <input
+                type="email"
+                class="form-control"
+                id="signup_email"
+                aria-describedby="emailHelp"
+                placeholder="Email"
+                style="margin-bottom: 10px"
+              />
+              <input
+                type="text"
+                class="form-control"
+                id="signup_username"
+                aria-describedby="emailHelp"
+                placeholder="Username"
+                style="margin-bottom: 10px"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                class="form-control"
+                id="signup_password1"
+                placeholder="Password"
+                style="margin-bottom: 10px"
+              />
+              <input
+                type="password"
+                class="form-control"
+                id="signup_password2"
+                placeholder="Confirm Password"
+              />
+            </div>
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="sign_up_check"
+              />
+              <label class="form-check-label" for="sign_up_check"
+                >Confirm</label
+              >
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer mx-auto">
+          <button
+            type="submit"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+            id="sign_up_close"
+          >
+            Close
+          </button>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            id="sign_up_submit"
+          >
+            Join
+          </button>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- modal for login -->
+    <div
+      class="modal fade"
+      id="login_modal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header" id="login_modal_header">
+            <div class="row mx-auto">
+              <h6 class="display-4" id="login_modal_label">Login :)</h6>
+            </div>
+          </div>
+          <div class="modal-body mx-auto  alert_hide" id="login_alert">
+            <!--                                    alert for modal-->
+          </div>
+          <div class="modal-body">
+            <form id="login_form">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="login_username"
+                  aria-describedby="emailHelp"
+                  placeholder="Username"
+                  style="margin-bottom: 10px"
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="login_password"
+                  placeholder="Password"
+                  style="margin-bottom: 10px"
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer mx-auto">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+              id="login_close"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="login_submit"
+            >
+              Login
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--modal for user -->
+    <div
+      class="modal fade"
+      id="user_modal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document" >
+        <div class="modal-content">
+          <div class="modal-header" id="user_modal_header">
+            <div class="row mx-auto">
+              <h6 class="display-4" id="user_modal_label">
+                Account :)
+              </h6>
+            </div>
+          </div>
+          <div class="modal-body">
+            <p class="h3 text-center" id="user_username"></p>
+            <p class="h3 text-center" id="user_email"></p>
+            <p class="h3 text-center" id="user_userid"></p>
+          </div>
+          <div class="modal-footer mx-auto">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+              id="user_close"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal for friend search -->
+    <div class="modal fade"
+     id="friend_search"
+      tabindex="-1" 
+      role="dialog" 
+      aria-labelledby="exampleModalLongTitle" 
+      aria-hidden="true"
+      >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <!-- search friend search - result - show -->
+          <div class="modal-header" id="addfriend_modal_header">
+            <div class="row mx-auto">
+              <h6 class="display-4" id="addfriend_modal_label">
+                Add Friend :)
+              </h6>
+            </div>
+          </div>
+          <div class="modal-body mx-auto alert_hide" id="friendsearch_alert">
+            <!--alert for modal-->
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-12">
+                <input type="email" class="form-control rounded" placeholder="Search by email :)" aria-label="Search"
+                aria-describedby="search-addon" style="margin-bottom: 10px;" id="addfriendsearch_input"/>
+                <button class="btn btn-primary btn-block" id="addfriendsearch_button" style="background-color: #9FD356;">Find</button>
+              </div>
+            </div>
+          </div>
+          <div class="modal-body mx-auto">
+            <div class="row">
+              <div class="col-12" id="friendsearch_list_show">
+                <!-- <h2 class="display-4">Subhadip</h2>
+                <button type="button" class="btn btn-outline-danger btn-block">Cancel</button> -->
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer mx-auto">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+              id="addfriend_close"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- loader for webpage -->
+    <div id="overlay">
+      <div class="lds-roller" id="loader">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+    <!-- alert modal for user -->
+    <div
+      class="modal fade"
+      id="alert_modal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-dialog-centered"
+        role="document"
+        style="width: 40vw"
+      >
+        <div class="modal-content">
+          <div class="modal-header" id="alert_modal_header">
+            <div class="row mx-auto">
+              <p class="display-4" id="alert_modal_title"></p>
+            </div>
+          </div>
+          <div class="modal-body mx-auto" id="alert_modal_body">
+            <div class="row mx-auto">
+              <h6 id="alert_modal_body_content_1"></h6>
+            </div>
+          </div>
+          <div class="modal-footer mx-auto">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+  <!--    jquery cdn-->
+  <script src="./JS/jquery.js"></script>
+
+  <!-- bootstrap javascript cdn-->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"
+  ></script>
+
+  <!--custom javascript-->
+  <script src="JS/index.js"></script>
+  <!--<script src="JS/serializetojson.js"></script>-->
+
+  <!-- before login hide button - signup, login, add friend etc -->
+  <script>
+    $("#logout_button").hide();
+    $("#user_button").hide();
+    $("#setting_button").hide();
+    $("#addfriend_button").hide();
+    $('#setting_button').hide();
+    $("#overlay").css("display", "none");
+  </script>
+</html>

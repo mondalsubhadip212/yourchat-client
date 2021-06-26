@@ -1,0 +1,21 @@
+/* all css related to setting page */
+
+.setting_body {
+    /* background-color: #31E981; */
+    background-image: url(../img/cool-background.png);
+    background-size: 100%;
+}
+
+/* for hidding scroll bar */
+::-webkit-scrollbar{
+    display: none;
+}
+
+/* for hover on button */
+.hover_button_effect:hover{
+    background-color: #011627!important;
+}
+
+#friends_modal_header{
+    background-color:#FCA311;
+}

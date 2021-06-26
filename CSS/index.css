@@ -1,0 +1,100 @@
+/* all css related to index.html */
+::-webkit-scrollbar{
+    display: none;
+}
+
+.body {
+    /* background-color: #31E981; */
+    background-image: url(../img/cool-background.png);
+    background-size: 100%;
+    
+}
+
+/* berfore login design */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:900i&display=swap');
+.span{
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    transform: translate(-60%, -60%);
+    font-size:100px;
+      letter-spacing:0.2em;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: white;
+    text-shadow: 
+                          9px 9px #EF2D56,
+                          20px 20px #000000;
+  }
+
+/* #search_box {
+    outline: none;
+    border-radius: 10px;
+}
+
+#search_button {
+    outline: none;
+    border-radius: 10px;
+    margin-left: 6px;
+    margin-right: 6px;
+} */
+
+#signup_button {
+    outline: none;
+    margin-right: 6px;
+}
+
+#login_button {
+    outline: none;
+    margin-right: 6px;
+}
+
+#logout_button {
+    outline: none;
+    margin-right: 6px;
+}
+
+#user_button {
+    outline: none;
+    margin-right: 6px;
+}
+
+#signup_modal_header{
+    background-color: #28AFB0;
+}
+
+#login_modal_header{
+    background-color: #0EAD69;
+}
+
+#user_modal_header{
+    background-color:#FCA311;
+}
+#addfriend_modal_header{
+    background-color: #9FD356;
+}
+
+#overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+  }
+
+  /* #body{
+      background-image:url("../img/sound_waves_abstract_4k_hd_abstract.jpg");
+      background-size: 1920px 1080px;
+  } */
+
+  /* hover for right side button */
+
+  .hover_button_effect:hover{
+    background-color: #011627!important;
+}
