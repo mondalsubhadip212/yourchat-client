@@ -622,13 +622,13 @@ $(document).ready(function () {
       $.each(friends,function(indexInArray,valueOfElement){
         $("#chat_message_sent_receive_section").append(
           `
-          <section class="msger" id=${valueOfElement}_chat style="display:none;">
+          <section class="msger" id="${valueOfElement}_chat" style="display:none;">
           <!-- for the chat box header section -->
             <header class="msger-header">
               <h4>${valueOfElement}</h4>
             </header>
             <!-- for the chat box main message sent receive section -->
-            <main class="msger-chat" id=${valueOfElement}_chat_send_receive>
+            <main class="msger-chat" id="${valueOfElement}_chat_send_receive">
             </main>
           <!-- for messge input area -->
             <form class="msger-inputarea">
