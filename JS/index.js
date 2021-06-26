@@ -18,7 +18,7 @@ $(document).ready(function () {
       accept_request : `${url_server}/accept_request`,
       deny_request : `${url_server}/deny_request`,
       unfriend : `${url_server}/unfriend`,
-      chat : `ws://crabsnilchat.herokuapp.com/chat`
+      chat : `wss://crabsnilchat.herokuapp.com/chat`
     };
 
     let user_details = {
