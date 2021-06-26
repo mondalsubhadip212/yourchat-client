@@ -221,7 +221,8 @@ $(document).ready(function () {
 
     // form data null check
     function form_data_null_check(val) {
-      if (val !== "") {
+      let space = val.includes(" ")
+      if (val !== "" && space === false) {
         return val;
       } else {
         return undefined;
